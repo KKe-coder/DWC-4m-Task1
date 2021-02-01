@@ -1,4 +1,5 @@
-# README
-sample_appにRails 10章を加えたものにAI用の編集を加えたもの
+## DMM WEBCAMPコンテンツ
 
-これをテンプレートにする
+(PHASE4)
+DMM WEBCAMPの学習コンテンツ<br>
+AI活用に関する練習用アプリケーションです。

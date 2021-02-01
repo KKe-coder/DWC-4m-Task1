@@ -19,9 +19,6 @@ module Vision
           },
           features: [
             {
-              type: 'LABEL_DETECTION'
-            },
-            {
               type: 'IMAGE_PROPERTIES'
             }
           ]
@@ -38,7 +35,7 @@ module Vision
 
       # APIレスポンス出力
       JSON.parse(response.body)['responses'][0]['labelAnnotations'].pluck('description').take(3)
-      JSON.parse(response.body)['responses'][0]['imagePropertiesAnnotation']['dominantColors']['colors'].pluck('color').take(3)
+
     end
   end
 end

@@ -9,7 +9,7 @@ class TodolistsController < ApplicationController
     list.save
     tags = Vision.get_image_data(list.image)
     tags.each do |tag|
-      list.tags.create(name: tag)
+      list.tags.create(name: tag.values.map{|i| i.to_s(16) }.join.upcase)
     end
     redirect_to todolist_path(list.id)
   end
