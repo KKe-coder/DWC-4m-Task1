@@ -6,6 +6,10 @@ class TodolistsController < ApplicationController
   def create
     list = List.new(list_params)
     list.save
+    tags = Vision.get_image_data(list.image)
+    tags.each do |tag|
+      list.tags.create(name: tag)
+    end
     redirect_to todolist_path(list.id)
   end
 
