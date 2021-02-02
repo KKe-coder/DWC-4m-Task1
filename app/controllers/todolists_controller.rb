@@ -7,9 +7,12 @@ class TodolistsController < ApplicationController
     list = List.new(list_params)
     list.score = Language.get_data(list_params[:body])
     list.save
-    tags = Vision.get_image_data(list.image)
+    #VisionAPIから返ってきたデータを配列化
+    tags =  Array.new([Vision.get_image_data(list.image)])
+    binding.pry
     tags.each do |tag|
-      list.tags.create(name: tag.values.map{|i| i.to_s(16) }.join.upcase)
+      list.tags.create(name: tag.values.map{|i| i.to_s(16).rjust(2, '0') }.join.upcase)
+      #HTMLのカラーコードとして使用
     end
     redirect_to todolist_path(list.id)
   end
