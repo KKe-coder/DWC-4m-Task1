@@ -8,6 +8,7 @@
 <div class="tag-box">
 <% @list.tags.each do |tag| %>
   <span class="label" style="background-color:#<%= tag.name %>">ドミナントカラー：<%= tag.name %></span>
+  <span class="label" style="background-color:<%= tag.color %>">最も近い色：<%= tag.color %></span>
 <% end %>
 </div>
 <%= link_to "削除", destroy_todolist_path(@list.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
